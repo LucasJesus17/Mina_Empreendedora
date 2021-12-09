@@ -17,7 +17,7 @@ public class Tema{
 	    
 	    @Id	
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private long id;
+		private Long id;
 	    
 	    @NotBlank(message = "O atributo Descrição é obrigatório e não pode conter espaços em branco")
 	    @Size(min = 5, max = 255, message = "O tema deve ter no minimo 5 e no maximo 255 caracteres")
@@ -47,11 +47,11 @@ public class Tema{
 			this.palavrachave = palavrachave;
 		}
 
-		public long getId() {
+		public Long getId() {
 			return id;
 		}
 
-		public void setId(long id) {
+		public void setId(Long id) {
 			this.id = id;
 		}
 
