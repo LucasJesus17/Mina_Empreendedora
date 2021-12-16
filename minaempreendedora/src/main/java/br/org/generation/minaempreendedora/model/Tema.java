@@ -31,11 +31,10 @@ public class Tema{
 	    @Size(min = 5, max = 255, message = "O tema deve ter no minimo 5 e no maximo 255 caracteres")
 	    private String tema;
 		
-		@NotBlank(message = "O atributo Descrição é obrigatório e não pode conter espaços em branco")
+		
 		private String descricao;
 		
-		@NotBlank(message = "O atributo palavra-chave é obrigatório e não pode conter espaços em branco")
-		@Size(min = 5, max = 255, message = "A palavra-chave deve ter no minimo 5 e no maximo 255 caracteres")
+		
 		private String palavrachave;
 		
 		@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
