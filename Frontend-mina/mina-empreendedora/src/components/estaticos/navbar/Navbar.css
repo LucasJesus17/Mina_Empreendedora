@@ -1,0 +1,30 @@
+.cursor{
+    cursor: pointer;
+    color: white;
+
+}
+.logout{
+    cursor: pointer;
+    color: white;
+    grid-row-end: span 3;
+}
+.text-decorator-none{
+    text-decoration: none;
+}
+
+.titulo1{
+    background-color: #3F51B5;
+    font-size: 30px;
+    text-align: center;
+    padding: 8px;
+    color: white;
+}
+
+.espacos{
+    margin-right: 20px;
+}
+
+.menu1{
+    background-color: #3F51B5 !important;
+    width: 600px;
+}
