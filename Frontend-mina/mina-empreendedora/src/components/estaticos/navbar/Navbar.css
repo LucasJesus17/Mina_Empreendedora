@@ -13,7 +13,7 @@
 }
 
 .titulo1{
-    background-color: #3F51B5;
+    background-color: #800000;
     font-size: 30px;
     text-align: center;
     padding: 8px;
@@ -25,6 +25,10 @@
 }
 
 .menu1{
-    background-color: #3F51B5 !important;
+    background-color: #800000 !important;
     width: 600px;
+}
+
+.text-decorator-none{
+    text-decoration: none;
 }

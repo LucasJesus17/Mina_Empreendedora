@@ -1,11 +1,15 @@
 .box1{
-    background-color: #303F9F;
+    background-color: #800000  ;
     height: 120px;
 }
 
+.footer{
+position: absolute;
+bottom: auto;
+}
 
 .box2{
-    background-color: #303F9F;
+    background-color: #800000  ;
     height: 60px;
 }
 

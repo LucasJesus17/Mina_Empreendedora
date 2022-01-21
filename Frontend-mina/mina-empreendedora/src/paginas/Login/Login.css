@@ -5,15 +5,22 @@
   display: flex;
 
 }
-
+body{
+  background-color: rgb(218, 232, 247);
+}
 .textos1 {
     font-weight: bold !important;
   
   }
   .text-decorator-none {
     text-decoration: none;
+    color: #800000;
   }
-  
+  .butao{
+    border-color: #800000 !important;
+    background-color: #800000 !important;
+    color: white !important;
+}
   .imagem {
     background-image: url(https://i.imgur.com/wKunqlF.png);
     background-repeat: no-repeat;

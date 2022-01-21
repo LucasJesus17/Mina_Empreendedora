@@ -9,8 +9,11 @@ function Navbar() {
     return (
         <>
             <Grid container lg={12} xs={12}>
+                
                 <AppBar position="static" className='menu1'>
+                <Link to='home' className='text-decorator-none'>
                     <Box className='titulo1'>Mina empreendedora</Box>
+                    </Link>
                     <Toolbar variant="dense" >
                         <Box display="flex" justifyContent="start">
                             <Box mx={3} className='cursor'>
