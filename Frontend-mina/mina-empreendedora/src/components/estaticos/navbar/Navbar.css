@@ -13,22 +13,22 @@
 }
 
 .titulo1{
-    background-color: #800000;
+    background-color: #800000 !important;
     font-size: 30px;
-    text-align: center;
+    margin-left: 38%;
     padding: 8px;
     color: white;
+    
 }
 
-.espacos{
-    margin-right: 20px;
+
+
+header{
+  background-color: #800000 !important;
 }
+
 
 .menu1{
     background-color: #800000 !important;
     width: 600px;
-}
-
-.text-decorator-none{
-    text-decoration: none;
 }

@@ -7,7 +7,9 @@
     border-color: #800000 !important;
     background-color: #800000;
     color: #800000 !important;
+    text-decoration: none;
 }
+
 .postagens{
-    background-color: white;
+    background-color: rgb(218, 232, 247);
 } 

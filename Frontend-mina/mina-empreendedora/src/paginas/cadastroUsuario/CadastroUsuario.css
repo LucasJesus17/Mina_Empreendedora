@@ -1,32 +1,33 @@
 .imagem2 {
-    background-image: url(https://i.imgur.com/PqB1DlB.png);
-    background-repeat: no-repeat;
-    width: 50vh;
-    min-height: 50vh;
-    background-size: cover;
-    background-position: center;
-  }
-  .pagina{
-    justify-content: center;
-    height: 600px;
-    align-content: center;
-    display: flex;
-  
-  }
-  .butao{
-    border-color: #800000 !important;
-    background-color: #800000;
-    color: #800000 !important;
+  background-image: url(https://i.imgur.com/PqB1DlB.png);
+  background-repeat: no-repeat;
+  width: 50vh;
+  min-height: 50vh;
+  background-size: cover;
+  background-position: center;
 }
-  .textos2 {
-    font-weight: bold !important;
-  }
-  
-  .btnCancelar {
-    margin-right: 20px !important;
-    text-decoration: none ;
-  }
+.pagina{
+  justify-content: center;
+  height: 600px;
+  align-content: center;
+  display: flex;
 
-  .text-decorator-none{
-    text-decoration: none;
+}
+.butao{
+  border-color: #800000;
+  background-color: #800000;
+  color: #800000;
+}
+.textos2 {
+  font-weight: bold !important;
+  color: #800000 !important;
+}
+
+.btnCancelar {
+  margin-right: 20px !important;
+  text-decoration: none ;
+}
+
+.text-decorator-none{
+  text-decoration: none;
 }

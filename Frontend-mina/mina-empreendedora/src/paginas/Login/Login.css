@@ -10,7 +10,7 @@ body{
 }
 .textos1 {
     font-weight: bold !important;
-  
+    color: #800000 !important;
   }
   .text-decorator-none {
     text-decoration: none;
