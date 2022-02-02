@@ -47,6 +47,7 @@
 
 .bordo{
     background-color: #800000 !important;
+    color: white !important;
     
 }
 
@@ -56,7 +57,7 @@
         margin: auto;
         display: flex;
         height: 120px; 
-        border-radius: 20px; 
+       
 }
 .icone{
     height: 24px;
@@ -83,6 +84,8 @@ nav {
       margin-left: 50px;
 
     }
+
+
 .post{
     margin-top: 5px;
     border-radius: 15px;

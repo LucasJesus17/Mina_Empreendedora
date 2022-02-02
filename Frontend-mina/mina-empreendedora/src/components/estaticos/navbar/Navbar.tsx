@@ -4,6 +4,7 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
+import { Link } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
@@ -32,7 +33,7 @@ const Search = styled('div')(({ theme }) => ({
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-        marginLeft: theme.spacing(35),
+        marginLeft: theme.spacing(30),
         width: 'auto',
     },
 }));
@@ -97,7 +98,7 @@ export default function PrimarySearchAppBar() {
             anchorOrigin={{
                 vertical: 'top',
                 horizontal: 'right',
-                
+
             }}
             id={mobileMenuId}
             keepMounted
@@ -107,15 +108,18 @@ export default function PrimarySearchAppBar() {
             }}
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
-        
+
         >
-            
+
             <MenuItem >
                 <IconButton size="large" aria-label="show 10 new mails" color="inherit" >
+
                     <Badge badgeContent={10} color="error">
-                        <HomeIcon />
+
+                        <HomeIcon>Inicio</HomeIcon>
+
                     </Badge>
-                    
+
                 </IconButton>
                 <p >Inicio</p>
             </MenuItem>
@@ -133,7 +137,7 @@ export default function PrimarySearchAppBar() {
                         <ChatBubbleIcon />
                     </Badge>
                 </IconButton>
-                <p>Mensagem</p>
+              <p>Mensagem</p>
             </MenuItem>
             <MenuItem>
                 <IconButton
@@ -174,46 +178,51 @@ export default function PrimarySearchAppBar() {
             <Box sx={{ flexGrow: 1 }} >
                 <AppBar position="fixed">
                     <Toolbar sx={{ backgroundColor: '#800000' }}>
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="div"
-                            sx={{ display: { xs: 'none', sm: 'block' } }}
-                            className='ImgNavbar'
-                        >
-                        </Typography>
+                      
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="div"
+                                sx={{ display: { xs: 'none', sm: 'block' } }}
+                                className='ImgNavbar'
+                            >
+                            </Typography>
+                      
                         <Box sx={{ flexGrow: 1 }} />
                         <Box sx={{ display: { xs: 'none', md: 'flex' } }}  >
 
-                            <IconButton size="large" aria-label="show34 new mails"  color="inherit" style={{padding: '10px'}}>
+                            <IconButton size="large" aria-label="show34 new mails" color="inherit" style={{ padding: '10px' }}>
+
                                 <Badge badgeContent={4} color="error">
-                                    <HomeIcon sx={{color: 'white'}} />
+                                    <HomeIcon sx={{ color: 'white' }} />
+                                </Badge>
+
+                            </IconButton>
+
+                            <IconButton size="large" aria-label="show34 new mails" color="inherit" style={{ padding: '10px' }}>
+                                <Badge badgeContent={4} color="error">
+                                    <PersonIcon sx={{ color: 'white' }} />
                                 </Badge>
                             </IconButton>
-                            <IconButton size="large" aria-label="show34 new mails" color="inherit" style={{padding: '10px'}}>
+                            <IconButton size="large" aria-label="show 4 new mails" color="inherit" style={{ padding: '10px' }}>
                                 <Badge badgeContent={4} color="error">
-                                    <PersonIcon sx={{color: 'white'}} />
-                                </Badge>
-                            </IconButton>
-                            <IconButton size="large" aria-label="show 4 new mails" color="inherit" style={{padding: '10px'}}>
-                                <Badge badgeContent={4} color="error">
-                                    <ChatBubbleIcon sx={{color: 'white'}} />
+                                    <ChatBubbleIcon sx={{ color: 'white' }} />
                                 </Badge>
                             </IconButton>
                             <IconButton
                                 size="large"
                                 aria-label="show 17 new notifications"
                                 color="inherit"
-                                style={{padding: '10px'}}
+                                style={{ padding: '10px' }}
                             >
                                 <Badge badgeContent={17} color="error">
-                                    <NotificationsIcon sx={{color: 'white'}} />
+                                    <NotificationsIcon sx={{ color: 'white' }} />
                                 </Badge>
                             </IconButton>
                         </Box>
                         <Search>
                             <SearchIconWrapper>
-                                <SearchIcon sx={{color: 'white'}} />
+                                <SearchIcon sx={{ color: 'white' }} />
                             </SearchIconWrapper>
                             <StyledInputBase
                                 placeholder="Pesquisar..."
@@ -229,7 +238,7 @@ export default function PrimarySearchAppBar() {
                                 color="inherit"
                             >
                                 <Badge>
-                                    <LogoutIcon sx={{color: 'white'}} />
+                                    <LogoutIcon sx={{ color: 'white' }} />
                                 </Badge>
                             </IconButton>
 
@@ -251,7 +260,7 @@ export default function PrimarySearchAppBar() {
                 </AppBar>
             </Box>
     }
-    
+
     return (
         <>
             {navbarComponent}
@@ -259,5 +268,4 @@ export default function PrimarySearchAppBar() {
         </>
 
     );
-
 }

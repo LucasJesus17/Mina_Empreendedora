@@ -6,15 +6,14 @@ import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
 import Home from './paginas/home/Home';
 import Login from './paginas/Login/Login';
 import './App.css';
-import ListaTema from './components/temas/listatema/ListaTema';
-import ListaPostagem from './components/postagens/listapostagem/ListaPostagem';
 import CadastroPost from './components/postagens/cadastroPost/CadastroPost';
-
 import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import store from './store/store';
-import {ToastContainer} from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Sobre from './paginas/sobre/Sobre';
+import Perfil from './paginas/perfil/Perfil';
 
 
 
@@ -23,11 +22,13 @@ function App() {
   return (
     <>
 
+
       <Provider store={store}>
         <ToastContainer />
         <Navbar />
         <Router>
 
+        
 
           <Switch>
             <Route exact path='/'>
@@ -46,6 +47,10 @@ function App() {
               <Home />
             </Route>
 
+            <Route path='/perfil'>
+                <Perfil />
+            </Route>
+
             <Route exact path='/formularioPostagem'>
               <CadastroPost />
             </Route>
@@ -56,7 +61,10 @@ function App() {
               <DeletarPostagem />
             </Route>
 
-
+            <Route path='/sobre'>
+                <Sobre />
+                <Footer />
+            </Route>
 
           </Switch>
 

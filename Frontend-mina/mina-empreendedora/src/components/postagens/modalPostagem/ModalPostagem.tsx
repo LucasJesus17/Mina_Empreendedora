@@ -3,6 +3,7 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import { Button, Box } from "@material-ui/core"
 import CloseIcon from '@material-ui/icons/Close';
+import { Card, CardContent,  } from '@material-ui/core';
 import './ModalPostagem.css';
 import CadastroPost from '../cadastroPost/CadastroPost';
 
@@ -58,19 +59,27 @@ function ModalPostagem() {
 
   return (
     <div>
-      <Box>
-        <Button
-          variant="outlined"
-          
-          onClick={handleOpen}>O que você esta pensando?</Button>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-        >
-          {body}
-        </Modal>
+      <Box m={3} className='box-shadow pai' >
+
+        <Card variant="outlined">
+
+          <CardContent >
+            <Box>
+              <Button
+                variant="outlined"
+                className='publicar'
+                onClick={handleOpen}>O que você esta pensando?</Button>
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="simple-modal-title"
+                aria-describedby="simple-modal-description"
+              >
+                {body}
+              </Modal>
+            </Box>
+          </CardContent>
+        </Card>
       </Box>
     </div>
   );

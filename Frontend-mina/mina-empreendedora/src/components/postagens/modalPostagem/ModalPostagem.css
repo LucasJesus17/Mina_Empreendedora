@@ -1,7 +1,9 @@
 .cursor{
     cursor: pointer;
 }
-
+.publicar{
+    width: 100%;
+}
 .btnModal{
     border-color: white !important;
     background-color: white !important;

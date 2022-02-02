@@ -1,0 +1,15 @@
+.sobre{
+   font-weight: bold;
+   font-size: 30px;
+}
+
+.fotoCapa{
+    height: 300px;
+    width: 100%;
+}
+.nomePerfil{
+    text-align: center;
+}
+.itemPerfil{
+    margin-top: -70px;
+}

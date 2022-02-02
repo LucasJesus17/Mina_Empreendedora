@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams, Link } from 'react-router-dom';
 import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
 import { busca, buscaId, post, put } from '../../services/Service';
 import { TokenState } from '../../store/token/tokenReducer';
@@ -12,8 +12,6 @@ import { toast } from 'react-toastify';
 import { SelectChangeEvent } from '@mui/material/Select';
 import Tema from '../../models/Tema';
 import Postagem from '../../models/Postagem';
-
-
 import "./Home.css"
 import ListaPostagem from '../../components/postagens/listapostagem/ListaPostagem';
 
@@ -147,22 +145,23 @@ export default function AutoGrid() {
             <Grid container spacing={3} xs>
                 <Grid item xs={12} sm={12} md={3} >
                     <Item className="item box">
-                        <img className='imgl' src={`https://github.com/maria.png`} style={{ borderRadius: "80px" }} />
+                        <Link to='/perfil'>
+                            <img className='imgl' src={`https://github.com/maria.png`} style={{ borderRadius: "80px" }} />
+                        </Link>
                         <hr />
                         <a className='nome'>
                             Maria
                         </a>
                         <hr />
-
                     </Item>
                 </Grid>
 
                 <Grid item xs={12} sm={12} md={6} >
 
-                    <Box marginRight={1} className='postagem'>
+                    <Box marginRight={3} className='postagem'>
                         <ModalPostagem />
                     </Box>
-                        <ListaPostagem />
+                    <ListaPostagem />
                 </Grid>
 
                 <Grid item xs={12} sm={12} md={3}>
@@ -171,6 +170,11 @@ export default function AutoGrid() {
                             Patrocinado:
                         </p>
                         <img className='imgl' src="https://i.pinimg.com/originals/27/28/d9/2728d98ff83ab793d078265288379104.gif" />
+                    </Item>
+                    <Item className="item ">
+
+                        <Link to='/sobre'>sobre</Link>
+
                     </Item>
                 </Grid>
             </Grid>

@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
+
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 import './Footer.css'
@@ -12,13 +12,10 @@ import './Footer.css'
 function Copyright() {
   return (
     <>
-
-    <a href="https://www.linkedin.com/school/generationbrasil/" target="_blank" className='Icon'>
-    <GitHubIcon/></a>
     
 
   
-    <Typography variant="body2" color="text.secondary">
+    <Typography variant="body2" className='txtFooter'>
       {'Copyright © '}
         Mina Empreendedora
       {new Date().getFullYear()}

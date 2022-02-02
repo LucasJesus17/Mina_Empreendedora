@@ -8,13 +8,31 @@ import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/token/tokenReducer';
 import { toast } from 'react-toastify';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+
+
+
 
 function ListaPostagem() {
+
   const [posts, setPosts] = useState<Postagem[]>([])
   let history = useHistory();
   const token = useSelector<TokenState, TokenState["tokens"]>(
     (state) => state.tokens
   );
+
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
 
   useEffect(() => {
     if (token == "") {
@@ -27,7 +45,7 @@ function ListaPostagem() {
         draggable: false,
         theme: "colored",
         progress: undefined,
-    });
+      });
       history.push("/login")
 
     }
@@ -50,42 +68,43 @@ function ListaPostagem() {
   return (
     <>
       {
+
         posts.map(post => (
-          <Box m={3} className='box-shadow' >
+
+          <Box m={3} className='box-shadow pai' >
+
             <Card variant="outlined">
-              <CardContent>
-                <Typography color="textSecondary" gutterBottom>
-                  Postagens
+
+              <CardContent >
+                <Typography className='filho'>
+                  <Box display='flex' >
+                    <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none" >
+                          <EditIcon />
+                    </Link>
+                    <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
+                          <DeleteIcon />
+                    </Link>
+                  </Box>
                 </Typography>
                 <Typography variant="h5" component="h2">
                   {post.titulo}
                 </Typography>
+                <hr />
                 <Typography variant="body2" component="p">
                   {post.texto}
                 </Typography>
-                <Typography variant="body2" component="p">
-                  {post.tema?.descricao}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Box display="flex" justifyContent="center" mb={1.5}>
+                  <hr />
+                <img
+                  style={{
+                    objectFit: 'cover',
+                    backgroundPosition: 'center',
+                    width: '100%',
+                    height: '100%',
+                    position: 'relative'
+                  }}
+                  src={`${post.foto}`} alt="" />
 
-                  <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none" >
-                    <Box mx={1}>
-                      <Button variant="contained" className="marginLeft" size='small' >
-                        atualizar
-                      </Button>
-                    </Box>
-                  </Link>
-                  <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
-                    <Box mx={1}>
-                      <Button variant="contained" size='small' className='botao'>
-                        deletar
-                      </Button>
-                    </Box>
-                  </Link>
-                </Box>
-              </CardActions>
+              </CardContent>
             </Card>
           </Box>
         ))
