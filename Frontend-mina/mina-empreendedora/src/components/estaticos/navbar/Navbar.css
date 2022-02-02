@@ -1,34 +1,8 @@
-.cursor{
-    cursor: pointer;
-    color: white;
-
-}
-.logout{
-    cursor: pointer;
-    color: white;
-    grid-row-end: span 3;
-}
-.text-decorator-none{
-    text-decoration: none;
-}
-
-.titulo1{
-    background-color: #800000 !important;
-    font-size: 30px;
-    margin-left: 38%;
-    padding: 8px;
-    color: white;
-    
-}
-
-
-
-header{
-  background-color: #800000 !important;
-}
-
-
-.menu1{
-    background-color: #800000 !important;
-    width: 600px;
+.ImgNavbar{
+    background-image: url(https://cdn.discordapp.com/attachments/918856602424062032/938140611956060231/logo_das_mina_200_px2.png);
+    background-repeat: no-repeat;
+    width: 270px;
+    min-height:   50px;
+    background-size: cover;
+    background-position: center;
 }

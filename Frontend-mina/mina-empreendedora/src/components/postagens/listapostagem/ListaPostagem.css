@@ -1,8 +1,4 @@
-.text-decorator-none{
-    text-decoration: none;
-}
-.botao{
-    background-color: #800000 !important;
-    color: white !important;
-    
+.box-shadow{
+    box-shadow: 0 3px 3px rgba(0,0,0,0.35);
+    border-radius: 10px;
 }

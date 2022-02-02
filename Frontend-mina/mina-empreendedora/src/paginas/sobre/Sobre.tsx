@@ -2,7 +2,7 @@ import React from "react";
 
 function Sobre(){
     return(
-        <></>
+        <>Pagina de Sobre</>
     );
 }
 

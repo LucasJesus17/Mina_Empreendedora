@@ -1,15 +1,95 @@
+/*.geral {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1100px;
+    gap: 10px;
+    padding: 16px;
 
-.titulo{
-    color: #800000 !important;
-     font-weight: bold !important;
+}*/
+
+
+.item {
+    border-radius: 8px;
+    margin-top: 100px;
+    margin-left: 25px ;
+    cursor: pointer;
+
 }
-.butao{
-    border-color: #800000 !important;
-    background-color: #800000;
-    color: #800000 !important;
+
+
+.box{
+    color: #fff;
+    border: 1px solid white;
+    background-color: black;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.35);
+    transition: transform 0.6s ease-in-out;  
+    transition: box-shadow 0.2s ease-in-out;
+}
+.box:hover {
+    border: 5px solid #ECF2FA;
+    transform: scale(1.0); 
+    box-shadow: 0 5px 10px rgba(0,0,0,0.6);
+}
+
+.postagem{
+    margin-top: 100px;
+    margin-left: 25px ;
+
+}
+
+.botaoHome{
+    justify-content: flex-end ;
+    display: flex;
+
+}
+
+
+.bordo{
+    background-color: #800000 !important;
+    
+}
+
+.imgl{
+        width: auto;
+        height: auto;
+        margin: auto;
+        display: flex;
+        height: 120px; 
+        border-radius: 20px; 
+}
+.icone{
+    height: 24px;
+    padding: 2px;
+}
+.nome {
     text-decoration: none;
+    color: gray;
 }
+.dadosperfil{
+    align-items: center;
+}
+hr{
+    margin-top: 12px;
+      margin-bottom: 8px;
+      border-color: transparent;
+      border-bottom-color: #ECF2FA;
+}
+p{
+    text-align: start;
+}
+nav {
+      display: flex;
+      margin-left: 50px;
 
-.postagens{
-    background-color: rgb(218, 232, 247);
-} 
+    }
+.post{
+    margin-top: 5px;
+    border-radius: 15px;
+    resize: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+   
+}

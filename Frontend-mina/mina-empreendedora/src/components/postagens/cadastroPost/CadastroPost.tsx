@@ -128,7 +128,7 @@ function CadastroPost() {
     }
 
     function back() {
-        history.push('/posts')
+        history.push('/home')
     }
 
     return (

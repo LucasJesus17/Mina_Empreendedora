@@ -1,63 +1,179 @@
-import React, { useEffect } from 'react';
-import {Typography, Box, Grid, Button} from '@material-ui/core';
-import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
+import React, { ChangeEvent, useEffect, useState } from 'react'
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+import { useHistory, useParams } from 'react-router-dom';
 import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
-import './Home.css';
-import { useHistory } from 'react-router';
-import { useSelector } from 'react-redux';
+import { busca, buscaId, post, put } from '../../services/Service';
 import { TokenState } from '../../store/token/tokenReducer';
-import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import { SelectChangeEvent } from '@mui/material/Select';
+import Tema from '../../models/Tema';
+import Postagem from '../../models/Postagem';
 
-function Home() {
+
+import "./Home.css"
+import ListaPostagem from '../../components/postagens/listapostagem/ListaPostagem';
+
+const Item = styled(Paper)(({ theme }) => ({
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+}));
+
+const Input = styled('input')({
+    display: 'none',
+});
+
+
+
+export default function AutoGrid() {
 
     let history = useHistory();
+    const { id } = useParams<{ id: string }>();
+    const [temas, setTemas] = useState<Tema[]>([])
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
-      );
-    
+    );
+
+    const [age, setAge] = React.useState('');
+
+    const handleChange = (event: SelectChangeEvent) => {
+        setAge(event.target.value);
+    };
+
+    async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+        e.preventDefault()
+
+        if (id !== undefined) {
+            put(`/postagens`, postagem, setPostagem, {
+                headers: {
+                    'Authorization': token
+                }
+            })
+            toast.success('Postagem atualizada com sucesso', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
+        } else {
+            post(`/postagens`, postagem, setPostagem, {
+                headers: {
+                    'Authorization': token
+                }
+            })
+            toast.success('Postagem cadastrada com sucesso', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
+        }
+        back()
+
+    }
+
+    function back() {
+        history.push('/home')
+    }
+
     useEffect(() => {
-      if (token == "") {
-        toast.error('Você precisa estar logado', {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: false,
-            theme: "colored",
-            progress: undefined,
-        });
-          history.push("/login")
-  
-      }
-  }, [token])
+        if (token == "") {
+            toast.error('Você precisa estar logado', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
+            history.push("/login")
+
+        }
+    }, [token])
+
+    const [tema, setTema] = useState<Tema>(
+        {
+            id: 0,
+            descricao: '',
+            tema: ''
+        })
+    const [postagem, setPostagem] = useState<Postagem>({
+        id: 0,
+        titulo: '',
+        texto: '',
+        tema: null
+    })
+
+    useEffect(() => {
+        getTemas()
+        if (id !== undefined) {
+            findByIdPostagem(id)
+        }
+    }, [id])
+
+    async function findByIdPostagem(id: string) {
+        await buscaId(`postagens/${id}`, setPostagem, {
+            headers: {
+                'Authorization': token
+            }
+        })
+    }
+
+    async function getTemas() {
+        await busca("/tema", setTemas, {
+            headers: {
+                'Authorization': token
+            }
+        })
+    }
+
     return (
-        <>
-            <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>
-                <Grid alignItems="center" item xs={6}>
-                    <Box paddingX={20} >
-                        <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className='titulo'>Seja bem vindo(a)!</Typography>
-                        <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className='titulo'>expresse aqui os seus pensamentos e opiniões!</Typography>
-                    </Box>
-                    <Box display="flex" justifyContent="center" >
-                        <Box marginRight={1} >
-                            <ModalPostagem />
-                        </Box>
-                        <Link to="/posts" className="text-decorator-none">
-                            <Button variant="outlined" className='butao'>Ver Postagens</Button>
-                        </Link>
-                    </Box>
+        <Box sx={{ flexGrow: 1 }}>
+            <Grid container spacing={3} xs>
+                <Grid item xs={12} sm={12} md={3} >
+                    <Item className="item box">
+                        <img className='imgl' src={`https://github.com/maria.png`} style={{ borderRadius: "80px" }} />
+                        <hr />
+                        <a className='nome'>
+                            Maria
+                        </a>
+                        <hr />
+
+                    </Item>
                 </Grid>
-                <Grid item xs={6}  >
-                    <img src="https://i.imgur.com/H88yIo2.png" alt="" width="500px" height="500px" />
+
+                <Grid item xs={12} sm={12} md={6} >
+
+                    <Box marginRight={1} className='postagem'>
+                        <ModalPostagem />
+                    </Box>
+                        <ListaPostagem />
                 </Grid>
-                <Grid xs={12} className='postagens' >
-                    <TabPostagem />
+
+                <Grid item xs={12} sm={12} md={3}>
+                    <Item className="item box">
+                        <p>
+                            Patrocinado:
+                        </p>
+                        <img className='imgl' src="https://i.pinimg.com/originals/27/28/d9/2728d98ff83ab793d078265288379104.gif" />
+                    </Item>
                 </Grid>
             </Grid>
-        </>
+        </Box >
     );
 }
-
-export default Home;
