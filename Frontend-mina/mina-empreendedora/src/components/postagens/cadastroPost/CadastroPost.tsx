@@ -20,7 +20,7 @@ function CadastroPost() {
     );
 
     const [idusuario, setidusuario] = useLocalStorage('id');
-    
+
    /* const [user, setUser] = useState<User>({
         id: Number.parseInt(iduser),
         nome: '',
@@ -152,8 +152,6 @@ function CadastroPost() {
                 <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
                 <TextField value={postagem.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="foto" label="foto" variant="outlined" name="foto" margin="normal" fullWidth />
                 <TextField value={postagem.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="foto" label="foto" variant="outlined" name="foto" margin="normal" fullWidth />
-
-                <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="texto" name="texto" variant="outlined" margin="normal" fullWidth />
 
                 <FormControl >
                     <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
