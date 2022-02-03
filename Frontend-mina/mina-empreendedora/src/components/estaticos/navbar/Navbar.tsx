@@ -4,7 +4,7 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, Redirect } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
@@ -33,7 +33,7 @@ const Search = styled('div')(({ theme }) => ({
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-        marginLeft: theme.spacing(30),
+        marginLeft: theme.spacing(33),
         width: 'auto',
     },
 }));
@@ -111,34 +111,40 @@ export default function PrimarySearchAppBar() {
 
         >
 
+
+
             <MenuItem >
-                <IconButton size="large" aria-label="show 10 new mails" color="inherit" >
+                <Link to='/home' >
+                    <IconButton size="large" aria-label="show 10 new mails" color="inherit" >
+                        <Badge badgeContent={10} color="error">
+                            <HomeIcon className='text-decoration-none'></HomeIcon>
+                        </Badge>
+                        <p className='text-decoration-none texto'>Inicio</p>
+                    </IconButton>
 
-                    <Badge badgeContent={10} color="error">
-
-                        <HomeIcon>Inicio</HomeIcon>
-
-                    </Badge>
-
-                </IconButton>
-                <p >Inicio</p>
+                </Link>
             </MenuItem>
-            <MenuItem>
-                <IconButton size="large" aria-label="show 10 new mails" color="inherit">
-                    <Badge badgeContent={10} color="error">
-                        <PersonIcon />
-                    </Badge>
-                </IconButton>
-                <p>Perfil</p>
-            </MenuItem>
+
+            <Link to='/perfil' >
+                <MenuItem >
+                    <IconButton size="large" aria-label="show 10 new mails" color="inherit">
+                        <Badge badgeContent={10} color="error">
+                            <PersonIcon className='text-decoration-none' />
+                        </Badge>
+                    </IconButton>
+                    <p className='text-decoration-none'>Perfil</p>
+                </MenuItem>
+
+            </Link>
             <MenuItem>
                 <IconButton size="large" aria-label="show 10 new mails" color="inherit">
                     <Badge badgeContent={10} color="error">
                         <ChatBubbleIcon />
                     </Badge>
                 </IconButton>
-              <p>Mensagem</p>
+                <p>Mensagem</p>
             </MenuItem>
+
             <MenuItem>
                 <IconButton
                     size="large"
@@ -151,19 +157,20 @@ export default function PrimarySearchAppBar() {
                 </IconButton>
                 <p>Notificação</p>
             </MenuItem>
-            <MenuItem>
-                <IconButton
-                    size="large"
-                    color="inherit"
-                >
-                    <Badge>
-                        <LogoutIcon />
-                    </Badge>
-                </IconButton>
-                <p>Sair</p>
-            </MenuItem>
-
-        </Menu>
+            <a href="/">
+                <MenuItem >
+                    <IconButton
+                        size="large"
+                        color="inherit"
+                    >
+                        <Badge>
+                            <LogoutIcon className='text-decoration-none' />
+                        </Badge>
+                    </IconButton>
+                    <p className='text-decoration-none'>Sair</p>
+                </MenuItem>
+            </a>
+        </Menu >
     );
 
     const token = useSelector<TokenState, TokenState["tokens"]>(
@@ -178,7 +185,8 @@ export default function PrimarySearchAppBar() {
             <Box sx={{ flexGrow: 1 }} >
                 <AppBar position="fixed">
                     <Toolbar sx={{ backgroundColor: '#800000' }}>
-                      
+
+                        <Link to='/home'>
                             <Typography
                                 variant="h6"
                                 noWrap
@@ -187,21 +195,23 @@ export default function PrimarySearchAppBar() {
                                 className='ImgNavbar'
                             >
                             </Typography>
-                      
+                        </Link>
                         <Box sx={{ flexGrow: 1 }} />
                         <Box sx={{ display: { xs: 'none', md: 'flex' } }}  >
 
                             <IconButton size="large" aria-label="show34 new mails" color="inherit" style={{ padding: '10px' }}>
 
                                 <Badge badgeContent={4} color="error">
-                                    <HomeIcon sx={{ color: 'white' }} />
+                                    <Link to='/home'>
+                                        <HomeIcon sx={{ color: 'white' }} />
+                                    </Link>
                                 </Badge>
 
                             </IconButton>
 
                             <IconButton size="large" aria-label="show34 new mails" color="inherit" style={{ padding: '10px' }}>
                                 <Badge badgeContent={4} color="error">
-                                    <PersonIcon sx={{ color: 'white' }} />
+                                    <Link to='/perfil'><PersonIcon sx={{ color: 'white' }} /> </Link>
                                 </Badge>
                             </IconButton>
                             <IconButton size="large" aria-label="show 4 new mails" color="inherit" style={{ padding: '10px' }}>
@@ -229,21 +239,21 @@ export default function PrimarySearchAppBar() {
                                 inputProps={{ 'aria-label': 'search' }}
                             />
                         </Search>
+                        <a href="/">
+                            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
 
-                        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                                <IconButton
+                                    size="large"
 
-                            <IconButton
-                                size="large"
+                                    color="inherit"
+                                >
+                                    <Badge>
+                                        <LogoutIcon sx={{ color: 'white' }} />
+                                    </Badge>
+                                </IconButton>
 
-                                color="inherit"
-                            >
-                                <Badge>
-                                    <LogoutIcon sx={{ color: 'white' }} />
-                                </Badge>
-                            </IconButton>
-
-                        </Box>
-
+                            </Box>
+                        </a>
                         <Box sx={{ display: { color: 'white', xs: 'flex', md: 'none' } }}>
                             <IconButton
                                 size="large"

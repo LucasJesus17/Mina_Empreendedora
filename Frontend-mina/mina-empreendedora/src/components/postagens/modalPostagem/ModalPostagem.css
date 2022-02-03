@@ -1,8 +1,12 @@
 .cursor{
     cursor: pointer;
 }
+
+    
+
 .publicar{
     width: 100%;
+    height: 50px;
 }
 .btnModal{
     border-color: white !important;

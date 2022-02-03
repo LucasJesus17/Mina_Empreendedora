@@ -7,3 +7,13 @@
     background-position: center;
 }
 
+.text-decoration-none{
+    color: rgb(32, 32, 32);
+}
+
+.texto{
+    border: 5px;
+    text-decoration: none;
+    font-size: medium;
+      
+}

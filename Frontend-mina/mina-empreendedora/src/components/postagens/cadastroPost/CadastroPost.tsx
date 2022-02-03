@@ -8,6 +8,8 @@ import { busca, buscaId, post, put } from '../../../services/Service';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/token/tokenReducer';
 import { toast } from 'react-toastify';
+import useLocalStorage from 'react-use-localstorage';
+import User from '../../../models/User';
 
 function CadastroPost() {
     let history = useHistory();
@@ -15,7 +17,17 @@ function CadastroPost() {
     const [temas, setTemas] = useState<Tema[]>([])
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
-      );
+    );
+
+    const [idusuario, setidusuario] = useLocalStorage('id');
+    
+   /* const [user, setUser] = useState<User>({
+        id: Number.parseInt(iduser),
+        nome: '',
+        usuario: '',
+        senha: ''
+
+    })*/
 
     useEffect(() => {
         if (token == "") {
@@ -38,17 +50,18 @@ function CadastroPost() {
         {
             id: 0,
             descricao: '',
-            tema: ''
+            tema: 'Tema'
         })
     const [postagem, setPostagem] = useState<Postagem>({
         id: 0,
         titulo: '',
         texto: '',
-        foto: '',
-        tema: null
+        foto: 'https://cdn.discordapp.com/attachments/903614501960691713/938780204548116590/SemFoto.png',
+        tema: null,
+        usuario: null
     })
 
-    useEffect(() => { 
+    useEffect(() => {
         setPostagem({
             ...postagem,
             tema: tema
@@ -135,9 +148,11 @@ function CadastroPost() {
     return (
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro postagem</Typography>
+                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Postagem</Typography>
                 <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
-                <TextField value={postagem.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="foto" label="foto" variant="outlined"  name="foto" margin="normal" fullWidth />
+                <TextField value={postagem.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="foto" label="foto" variant="outlined" name="foto" margin="normal" fullWidth />
+                <TextField value={postagem.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="foto" label="foto" variant="outlined" name="foto" margin="normal" fullWidth />
+
                 <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="texto" name="texto" variant="outlined" margin="normal" fullWidth />
 
                 <FormControl >

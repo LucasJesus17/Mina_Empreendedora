@@ -10,9 +10,27 @@ import { TokenState } from '../../../store/token/tokenReducer';
 import { toast } from 'react-toastify';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { styled } from '@mui/material/styles';
+import Rating from '@mui/material/Rating';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Favorite from '@material-ui/icons/Favorite';
+import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
+import MessageIcon from '@mui/icons-material/Message';
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+import ShareIcon from '@mui/icons-material/Share';
+import ReplyIcon from '@mui/icons-material/Reply';
 
-
-
+const StyledRating = styled(Rating)({
+  '& .MuiRating-iconFilled': {
+    color: '#ff6d75',
+  },
+  '& .MuiRating-iconHover': {
+    color: '#ff3d47',
+  },
+});
 
 function ListaPostagem() {
 
@@ -79,13 +97,21 @@ function ListaPostagem() {
                 <Typography className='filho'>
                   <Box display='flex' >
                     <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none" >
-                          <EditIcon />
+                      <EditIcon />
                     </Link>
                     <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
-                          <DeleteIcon />
+                      <DeleteIcon />
                     </Link>
                   </Box>
                 </Typography>
+
+                <Stack direction="row" spacing={2}>
+                  <Avatar alt="Remy Sharp" src={`https://github.com/maria.png`} />
+                  <h4 className='nomeHome'>Maria</h4>
+                  <h6 className='descHome'>Dona de um Salão de Beleza</h6>
+                </Stack>
+                <hr />
+
                 <Typography variant="h5" component="h2">
                   {post.titulo}
                 </Typography>
@@ -93,7 +119,7 @@ function ListaPostagem() {
                 <Typography variant="body2" component="p">
                   {post.texto}
                 </Typography>
-                  <hr />
+                <hr />
                 <img
                   style={{
                     objectFit: 'cover',
@@ -104,6 +130,40 @@ function ListaPostagem() {
                   }}
                   src={`${post.foto}`} alt="" />
 
+                <hr />
+
+                <div style={{
+                  margin: 'auto',
+                  display: 'block',
+                  width: 'fit-content'
+                }}>
+                  <FormControlLabel
+                    control={<Checkbox icon={<FavoriteBorder />}
+                      checkedIcon={<Favorite />}
+                      name="checkedH" />}
+                    label=""
+                  />
+
+                  <FormControlLabel
+                    control={<Checkbox icon={<MessageIcon />}
+                      checkedIcon={<MessageIcon />}
+                      name="checkedH" />}
+                    label=""
+                    color="default"
+
+                  />
+
+
+
+                  <FormControlLabel
+                    control={<Checkbox icon={<ArrowRightAltIcon />}
+                      checkedIcon={<ArrowRightAltIcon />}
+                      name="checkedH" />}
+                    label=""
+                    color="primary"
+                  />
+                </div>
+                <hr />
               </CardContent>
             </Card>
           </Box>

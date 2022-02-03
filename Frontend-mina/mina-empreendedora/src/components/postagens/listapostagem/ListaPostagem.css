@@ -8,6 +8,17 @@
     margin-top: 1em;
 
 }
+.nomeHome{
+    
+    margin-top: 7px !important;
+    
+}
+
+.descHome{
+
+    margin-top: 25px !important;
+    margin-left: -42px !important;
+}
 
 .filho{
   position: absolute;

@@ -1,11 +1,11 @@
-import * as React from 'react';
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import ListaPostagem from '../../components/postagens/listapostagem/ListaPostagem';
-import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
-import Box from '@mui/material/Box';
 import './Perfil.css'
+import User from '../../models/User';
+
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -15,7 +15,26 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
+
+
 function Sobre() {
+    const [user, setUser] = useState<User>(
+        {
+            id: 0,
+            nome: '',
+            usuario: '',
+            senha: '',
+            foto: ''
+        })
+    
+    const [userResult, setUserResult] = useState<User>(
+        {
+            id: 0,
+            nome: '',
+            usuario: '',
+            senha: '',
+            foto: ''
+        })
     return (
         <>
 
@@ -32,11 +51,11 @@ function Sobre() {
                     </Grid>
 
                     <Grid item xs={12} sm={12} md={7} >
-                    <Item>
-                    <p className='sobre'>Sobre</p>
-                        <hr />
-                        <p className='texto'>Ola eu sou maria e gosto de natureza.</p>
-                    </Item>
+                        <Item>
+                            <p className='sobre'>Sobre</p>
+                            <hr />
+                            <p className='texto'>Ola eu sou maria e gosto de natureza.</p>
+                        </Item>
                     </Grid>
 
                     <Grid item xs={12} sm={12} md={6} >

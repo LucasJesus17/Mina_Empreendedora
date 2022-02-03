@@ -14,6 +14,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Sobre from './paginas/sobre/Sobre';
 import Perfil from './paginas/perfil/Perfil';
+import Contato from './paginas/contato/contato';
 
 
 
@@ -25,10 +26,9 @@ function App() {
 
       <Provider store={store}>
         <ToastContainer />
-        <Navbar />
         <Router>
+          <Navbar />
 
-        
 
           <Switch>
             <Route exact path='/'>
@@ -48,7 +48,11 @@ function App() {
             </Route>
 
             <Route path='/perfil'>
-                <Perfil />
+              <Perfil />
+            </Route>
+
+            <Route path='/contato'>
+              <Contato />
             </Route>
 
             <Route exact path='/formularioPostagem'>
@@ -62,8 +66,8 @@ function App() {
             </Route>
 
             <Route path='/sobre'>
-                <Sobre />
-                <Footer />
+              <Sobre />
+              <Footer />
             </Route>
 
           </Switch>

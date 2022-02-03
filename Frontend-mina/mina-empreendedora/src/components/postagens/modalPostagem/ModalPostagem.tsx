@@ -66,6 +66,8 @@ function ModalPostagem() {
           <CardContent >
             <Box>
               <Button
+                style={{borderRadius: '80px',
+              }}
                 variant="outlined"
                 className='publicar'
                 onClick={handleOpen}>O que você esta pensando?</Button>
