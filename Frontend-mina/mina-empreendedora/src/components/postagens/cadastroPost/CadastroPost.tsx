@@ -56,7 +56,7 @@ function CadastroPost() {
         id: 0,
         titulo: '',
         texto: '',
-        foto: 'https://cdn.discordapp.com/attachments/903614501960691713/938780204548116590/SemFoto.png',
+        foto: '',
         tema: null,
         usuario: null
     })
@@ -142,7 +142,7 @@ function CadastroPost() {
     }
 
     function back() {
-        history.push('/home')
+        history.push('/perfil')
     }
 
     return (
@@ -151,7 +151,7 @@ function CadastroPost() {
                 <Typography variant="h3" color="textSecondary" component="h1" align="center" >Postagem</Typography>
                 <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
                 <TextField value={postagem.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="foto" label="foto" variant="outlined" name="foto" margin="normal" fullWidth />
-                <TextField value={postagem.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="foto" label="foto" variant="outlined" name="foto" margin="normal" fullWidth />
+                <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="foto" label="texto" variant="outlined" name="texto" margin="normal" fullWidth />
 
                 <FormControl >
                     <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>

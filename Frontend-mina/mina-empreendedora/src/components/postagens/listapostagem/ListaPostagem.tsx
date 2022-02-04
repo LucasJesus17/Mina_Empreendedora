@@ -108,7 +108,7 @@ function ListaPostagem() {
                 <Stack direction="row" spacing={2}>
                   <Avatar alt="Remy Sharp" src={`https://github.com/maria.png`} />
                   <h4 className='nomeHome'>Maria</h4>
-                  <h6 className='descHome'>Dona de um Salão de Beleza</h6>
+                  <h6 className='descHome nome'>Engenheira sênior de confiabilidade do Google</h6>
                 </Stack>
                 <hr />
 
