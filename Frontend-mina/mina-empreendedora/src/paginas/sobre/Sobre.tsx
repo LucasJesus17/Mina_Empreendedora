@@ -4,6 +4,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import './Sobre.css';
 
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
@@ -86,14 +87,28 @@ function Sobre() {
                     <Item className="item ">
                         <h1>De onde surgiu a ideia do mina empreendedora ?</h1>
 
-                        <p className='texto'>A rede-social mina empreendedora nasceu de um objetivo. Conectar microempreendedoras, que durante essa pandemia foram uma das categorias mais prejudicadas.
-                            Segundo dados do Sebrae e da Pesquisa (GEM) realizada em 2020,
-                            o Brasil é o sétimo país com o maior número de mulheres empreendedoras no mundo.
-                            Dos 52 milhões de empreendedores no país, 30 milhões são mulheres.
-                            E a preferência dessas empreendedoras são pelos segmentos de beleza, moda e alimentação.
-                            E dai surge um dos principais objetivos da mina empreendedora, 
-                            fazer com que através das conexões realizadas em nossa rede, 
-                            mulheres de todo o brasil possam realizar trocas de serviços a sua maneira.</p>
+                        <p className='texto'>A mina empreendedora nasceu de um objetivo,
+                         fazer com que através das conexões realizadas em nossa rede,
+                         mulheres de todo o brasil possam se comunicar e realizar trocas de serviços, 
+                         através de uma rede-social capaz de unifica-las.</p>
+                    </Item>
+                </Grid>
+                <Grid item xs={12} sm={12} md={10} >
+                    <Item className="item ">
+                        <h1>Mais de 30,000,000 de mulheres no Brasil são empreendedoras</h1>
+
+                        <p className='texto'>Segundo dados Sebrae e da Pesquisa Global Entrepreneurship Monitor 2020 (GEM),
+                        o Brasil é o sétimo país com o maior número de mulheres empreendedoras no mundo.
+                         Dos 52 milhões de empreendedores no país, 30 milhões (48%) são mulheres.</p>
+                    </Item>
+                </Grid>
+                <Grid item xs={12} sm={12} md={10} >
+                    <Item className="item ">
+                        <h1>O que nos motiva ?</h1>
+
+                        <p className='texto'>Uma das principais motivações do mina empreendedora é criar um local onde mulheres empreendedoras de todo o pais,
+                         possam criar laços e se fortalecerem através de um ambiente acolhedor,
+                         onde poderão publicar suas ideias e entrar em contato com demais empreendedoras.</p>
                     </Item>
                 </Grid>
             </Grid>

@@ -40,8 +40,8 @@ function Sobre() {
 
             <div>
                 <Grid container spacing={1} justifyContent='center'>
-                    <Grid item xs={12} sm={12} md={8} >
-                        <img className='fotoCapa' src={`https://i.imgur.com/Df9NPjM.jpg`} />
+                    <Grid item xs={12} sm={12} md={12} >
+                        <div className='fotoCapa'></div>
 
                         <div className="itemPerfil">
 
@@ -54,7 +54,7 @@ function Sobre() {
                         <Item>
                             <p className='sobre'>Sobre</p>
                             <hr />
-                            <p className='texto'>Ola eu sou maria e gosto de natureza.</p>
+                            <p className='texto'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae ipsum ratione aperiam. Non ut quas rem quasi! Enim quas nesciunt iusto est, praesentium cumque culpa. Culpa impedit voluptatibus voluptate beatae.</p>
                         </Item>
                     </Grid>
 

@@ -116,7 +116,7 @@ function ListaPostagem() {
                   {post.titulo}
                 </Typography>
                 <hr />
-                <Typography variant="body2" component="p">
+                <Typography variant="body2" component="p" className='texto'>
                   {post.texto}
                 </Typography>
                 <hr />

@@ -21,13 +21,13 @@ function CadastroPost() {
 
     const [idusuario, setidusuario] = useLocalStorage('id');
 
-   /* const [user, setUser] = useState<User>({
-        id: Number.parseInt(iduser),
-        nome: '',
-        usuario: '',
-        senha: ''
-
-    })*/
+    /* const [user, setUser] = useState<User>({
+         id: Number.parseInt(iduser),
+         nome: '',
+         usuario: '',
+         senha: ''
+ 
+     })*/
 
     useEffect(() => {
         if (token == "") {
@@ -103,8 +103,7 @@ function CadastroPost() {
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-
-        if (id !== undefined) {
+        if (id !== undefined ) {
             put(`/postagens`, postagem, setPostagem, {
                 headers: {
                     'Authorization': token
